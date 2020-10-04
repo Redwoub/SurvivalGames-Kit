@@ -1,0 +1,5 @@
+name: SurvivalGamesKits
+version: 1.0
+author: MrCubee
+main: fr.mrcubee.survivalgames.kit.SurvivalGamesKit
+depend: [SurvivalGames]
