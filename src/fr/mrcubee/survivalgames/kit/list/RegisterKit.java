@@ -8,7 +8,7 @@ import fr.mrcubee.survivalgames.kit.KitManager;
 public class RegisterKit {
 	
 	public static void register(JavaPlugin javaPlugin) {
-		KitManager kitManager = SurvivalGamesAPI.getInstance().getGame().getKitManager();
+		KitManager kitManager = SurvivalGamesAPI.getGame().getKitManager();
 		kitManager.registerKit(new ArcherKit());
 		kitManager.registerKit(new MinerKit());
 		kitManager.registerKit(new LumberJackKit());
