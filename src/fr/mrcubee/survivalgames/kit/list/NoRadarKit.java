@@ -43,7 +43,7 @@ public class NoRadarKit extends Kit {
 	
 	@EventHandler
 	public void playerRadarEvent(PlayerRadarEvent event) {
-		int playerInGame = javaPlugin.getServer().getOnlinePlayers().size() - SurvivalGamesAPI.getInstance().getGame().getNumberSpectator();
+		int playerInGame = javaPlugin.getServer().getOnlinePlayers().size() - SurvivalGamesAPI.getGame().getNumberSpectator();
 
 		if (playerInGame == getPlayers().size())
 			return;

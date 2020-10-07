@@ -63,7 +63,7 @@ public class ThiefKit extends Kit {
 		javaPlugin.getServer().getScheduler().scheduleSyncRepeatingTask(javaPlugin, new Runnable() {
 			public void run() {
 				try {
-					if (SurvivalGamesAPI.getInstance().getGame().getGameStats() != GameStats.DURING)
+					if (SurvivalGamesAPI.getGame().getGameStats() != GameStats.DURING)
 						return;
 					for (Entry<Player, Player> entry : thiefTargets.entrySet()) {
 						if (entry.getKey().getLocation().distance(entry.getValue().getLocation()) > 4)

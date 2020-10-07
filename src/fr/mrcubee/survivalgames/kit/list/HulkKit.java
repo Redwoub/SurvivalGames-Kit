@@ -39,10 +39,10 @@ public class HulkKit extends Kit {
 
 	@EventHandler
 	public void onDamage(EntityDamageByEntityEvent e) {
-		if (SurvivalGamesAPI.getInstance().getGame().getGameStats() != GameStats.DURING)
+		if (SurvivalGamesAPI.getGame().getGameStats() != GameStats.DURING)
 			return;
 		if (e.getDamager() instanceof Player) {
-			if ((e.getEntity() instanceof Player) && (!SurvivalGamesAPI.getInstance().getGame().isPvpEnable()))
+			if ((e.getEntity() instanceof Player) && (!SurvivalGamesAPI.getGame().isPvpEnable()))
 				return;
 			Player attacker = (Player) e.getDamager();
 			if (containsPlayer(attacker)) {
@@ -54,7 +54,7 @@ public class HulkKit extends Kit {
 
 	@EventHandler
 	public void onMove(PlayerMoveEvent event) {
-		if (SurvivalGamesAPI.getInstance().getGame().getGameStats() != GameStats.DURING)
+		if (SurvivalGamesAPI.getGame().getGameStats() != GameStats.DURING)
 			return;
 		if (!containsPlayer(event.getPlayer()))
 			return;

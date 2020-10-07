@@ -37,7 +37,7 @@ public class MyopieKit extends Kit {
 		javaPlugin.getServer().getScheduler().scheduleSyncRepeatingTask(javaPlugin, new Runnable() {
 			public void run() {
 				try {
-					if (SurvivalGamesAPI.getInstance().getGame().getGameStats() != GameStats.DURING)
+					if (SurvivalGamesAPI.getGame().getGameStats() != GameStats.DURING)
 						return;
 					for (Player player : getPlayers()) {
 						if (player.hasPotionEffect(PotionEffectType.BLINDNESS))
