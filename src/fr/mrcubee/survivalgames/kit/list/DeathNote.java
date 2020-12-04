@@ -54,6 +54,8 @@ public class DeathNote extends Kit {
 
     @Override
     public void removePlayerKit(Player player) {
+        if (player == null)
+            return;
         player.getInventory().remove(this.deathNoteItem);
     }
 
