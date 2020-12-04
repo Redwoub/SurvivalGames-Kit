@@ -15,7 +15,7 @@ import fr.mrcubee.bukkit.packet.GenericPacketPlayOutEntityDestroy;
 import fr.mrcubee.bukkit.packet.GenericPacketPlayOutEntityTeleport;
 import fr.mrcubee.bukkit.packet.GenericPacketPlayOutNamedEntitySpawn;
 
-public class CloneIlusion {
+public class CloneIllusion {
 	
 	private static double VIEW_FIELD = 20.0;
 	
@@ -34,7 +34,7 @@ public class CloneIlusion {
 	private GenericPacketPlayOutEntityDestroy packet_destroy;
 	private GenericPacketPlayOutEntityTeleport packet_teleport;
 	
-	public CloneIlusion(Player player, Random random, int entity_id){
+	public CloneIllusion(Player player, Random random, int entity_id){
 		this.player = player;
 		this.random = random;
 		this.entity_id = entity_id;

@@ -17,7 +17,7 @@ public class IllusionKit extends Kit{
 	private int entity_id_start;
 	private int entity_id_end;
 	private Map<Player, Integer> ids;
-	private Map<Player, List<CloneIlusion>> clones;
+	private Map<Player, List<CloneIllusion>> clones;
 	
 	private Random random;
 	
@@ -59,7 +59,7 @@ public class IllusionKit extends Kit{
 		}
 		
 		for(Player player : Bukkit.getOnlinePlayers()){
-			for(CloneIlusion clone : this.clones.get(player)){
+			for(CloneIllusion clone : this.clones.get(player)){
 				clone.update();
 				for(Player players : Bukkit.getOnlinePlayers()){
 					if(player.equals(players)) continue;
@@ -93,11 +93,14 @@ public class IllusionKit extends Kit{
 	public void makeIlusion(Player player, boolean ilusionist){
 		Location loc = player.getLocation();
 		int start_id = this.ids.get(player);
+		List<CloneIllusion> list = new ArrayList<>();
 		for(int i = 0; i < ((ilusionist) ? 5 : 2); i++){
-			CloneIlusion clone = new CloneIlusion(player, this.random, start_id+i);
+			CloneIllusion clone = new CloneIllusion(player, this.random, start_id+i);
+			list.add(clone);
 			Location spawn = clone.makeClone(loc);
 			if(random.nextBoolean()) loc = spawn;
 		}
+		this.clones.put(player, list);
 	}
 	
 }	
