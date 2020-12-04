@@ -14,6 +14,10 @@ import org.bukkit.entity.Player;
 import fr.mrcubee.bukkit.packet.GenericPacketPlayOutEntityDestroy;
 import fr.mrcubee.bukkit.packet.GenericPacketPlayOutEntityTeleport;
 import fr.mrcubee.bukkit.packet.GenericPacketPlayOutNamedEntitySpawn;
+import fr.mrcubee.bukkit.packet.GenericPacketPlayOutPlayerInfo;
+import fr.mrcubee.bukkit.player.PlayerInfoAction;
+import net.minecraft.server.v1_8_R3.PacketPlayInEntityAction.EnumPlayerAction;
+import net.minecraft.server.v1_8_R3.PacketPlayOutPlayerInfo.EnumPlayerInfoAction;
 
 public class CloneIllusion {
 	
@@ -34,11 +38,15 @@ public class CloneIllusion {
 	private GenericPacketPlayOutEntityDestroy packet_destroy;
 	private GenericPacketPlayOutEntityTeleport packet_teleport;
 	
+	private GenericPacketPlayOutPlayerInfo packet_playerInfo;
+	
 	public CloneIllusion(Player player, Random random, int entity_id){
 		this.player = player;
 		this.random = random;
 		this.entity_id = entity_id;
 		this.see = new ArrayList<>();
+		
+		
 		
 		packet_spawn = GenericPacketPlayOutNamedEntitySpawn.create();
 		packet_spawn.fillAllFromPlayer(player);
@@ -50,6 +58,9 @@ public class CloneIllusion {
 		packet_teleport = GenericPacketPlayOutEntityTeleport.create();
 		packet_teleport.setEntityID(this.entity_id);
 		packet_teleport.setOnTheGround(false);
+		
+		packet_playerInfo = GenericPacketPlayOutPlayerInfo.create();
+		packet_playerInfo.setAction(PlayerInfoAction.ADD_PLAYER);
 	}
 	
 	public Location getLocation(){
@@ -91,8 +102,8 @@ public class CloneIllusion {
 		Location playerLoc = player.getLocation();
 		if(!playerLoc.equals(this.lastPlayerLoc)){
 			double x = this.lastPlayerLoc.getX()-playerLoc.getX();
-			double y = this.lastPlayerLoc.getX()-playerLoc.getX();
-			double z = this.lastPlayerLoc.getX()-playerLoc.getX();
+			double y = this.lastPlayerLoc.getY()-playerLoc.getY();
+			double z = this.lastPlayerLoc.getZ()-playerLoc.getZ();
 			
 			this.loc = this.loc.add(x, y, z);
 			
