@@ -38,8 +38,6 @@ public class CloneIllusion {
 	private GenericPacketPlayOutEntityDestroy packet_destroy;
 	private GenericPacketPlayOutEntityTeleport packet_teleport;
 	
-	private GenericPacketPlayOutPlayerInfo packet_playerInfo;
-	
 	public CloneIllusion(Player player, Random random, int entity_id){
 		this.player = player;
 		this.random = random;
@@ -59,8 +57,6 @@ public class CloneIllusion {
 		packet_teleport.setEntityID(this.entity_id);
 		packet_teleport.setOnTheGround(false);
 		
-		packet_playerInfo = GenericPacketPlayOutPlayerInfo.create();
-		packet_playerInfo.setAction(PlayerInfoAction.ADD_PLAYER);
 	}
 	
 	public Location getLocation(){
@@ -101,9 +97,9 @@ public class CloneIllusion {
 	public void update(){
 		Location playerLoc = player.getLocation();
 		if(!playerLoc.equals(this.lastPlayerLoc)){
-			double x = this.lastPlayerLoc.getX()-playerLoc.getX();
-			double y = this.lastPlayerLoc.getY()-playerLoc.getY();
-			double z = this.lastPlayerLoc.getZ()-playerLoc.getZ();
+			double x = playerLoc.getX()-this.lastPlayerLoc.getX();
+			double y = playerLoc.getY()-this.lastPlayerLoc.getY();
+			double z = playerLoc.getZ()-this.lastPlayerLoc.getZ();
 			
 			this.loc = this.loc.add(x, y, z);
 			
