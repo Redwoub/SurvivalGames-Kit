@@ -1,26 +1,35 @@
 package fr.mrcubee.survivalgames.kit.list;
 
-import org.bukkit.plugin.java.JavaPlugin;
-
+import fr.mrcubee.survivalgames.SurvivalGames;
 import fr.mrcubee.survivalgames.SurvivalGamesAPI;
+import fr.mrcubee.survivalgames.kit.Kit;
 import fr.mrcubee.survivalgames.kit.KitManager;
+import org.bukkit.Bukkit;
 
 public class RegisterKit {
 	
-	public static void register(JavaPlugin javaPlugin) {
+	public static void register() {
+		Kit[] kits = new Kit[] {
+				new ArcherKit(),
+				new MinerKit(),
+				new LumberJackKit(),
+				new MonsterKit(),
+				new CreeperKit(),
+				new FarmerKit(),
+				new NinjaKit(),
+				new ThiefKit(),
+				new WereWolfKit(),
+				new NoRadarKit(),
+				new FakeRadarKit()
+				//MrCubeeKit.generateKit()
+		};
+		SurvivalGames survivalGames = SurvivalGamesAPI.getGame().getPlugin();
 		KitManager kitManager = SurvivalGamesAPI.getGame().getKitManager();
-		kitManager.registerKit(new ArcherKit());
-		kitManager.registerKit(new MinerKit());
-		kitManager.registerKit(new LumberJackKit());
-		kitManager.registerKit(new MonsterKit(javaPlugin));
-		kitManager.registerKit(new CreeperKit());
-		kitManager.registerKit(new FarmerKit());
-		kitManager.registerKit(new NinjaKit(javaPlugin));
-		kitManager.registerKit(new ThiefKit(javaPlugin));
-		//kitManager.registerKit(new MyopieKit(javaPlugin));
-		kitManager.registerKit(new WereWolfKit(javaPlugin));
-		kitManager.registerKit(new NoRadarKit(javaPlugin));
-		//kitManager.registerKit(MrCubeeKit.generateKit());
+
+		for (Kit kit : kits) {
+			kitManager.registerKit(kit);
+			Bukkit.getServer().getPluginManager().registerEvents(kit, survivalGames);
+		}
 	}
 
 }

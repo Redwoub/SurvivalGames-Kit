@@ -7,10 +7,8 @@ public class SurvivalGamesKit extends JavaPlugin {
 	
 	@Override
 	public void onLoad() {
-		if (this.getServer().getPluginManager().getPlugin("SurvivalGames") == null) {
+		if (this.getServer().getPluginManager().getPlugin("SurvivalGames") == null)
 			this.getServer().getPluginManager().disablePlugin(this);
-			return;
-		}
 	}
 	
 	@Override
@@ -19,7 +17,7 @@ public class SurvivalGamesKit extends JavaPlugin {
 			this.getServer().getPluginManager().disablePlugin(this);
 			return;
 		}
-		RegisterKit.register(this);
+		RegisterKit.register();
 	}
 
 }

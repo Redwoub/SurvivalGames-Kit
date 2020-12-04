@@ -1,6 +1,7 @@
 package fr.mrcubee.survivalgames.kit.list;
 
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.entity.PlayerDeathEvent;
@@ -12,9 +13,34 @@ public class CreeperKit extends Kit {
 	public CreeperKit() {
 		super("Creeper", "When you die, you make a huge explosion.", new ItemStack(Material.TNT));
 	}
-	
+
+	@Override
+	public boolean canTakeKit(Player player) {
+		return true;
+	}
+
+	@Override
+	public void givePlayerKit(Player player) {
+
+	}
+
+	@Override
+	public void removePlayerKit(Player player) {
+
+	}
+
+	@Override
+	public boolean canLostItem(ItemStack itemStack) {
+		return true;
+	}
+
+	@Override
+	public void update() {
+
+	}
+
 	@EventHandler(priority=EventPriority.LOWEST)
-	public void death(PlayerDeathEvent event) {
+	public void playerDeath(PlayerDeathEvent event) {
 		if (!containsPlayer(event.getEntity()))
 			return;
 		event.getEntity().getWorld().createExplosion(event.getEntity().getLocation(), 10L);

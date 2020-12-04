@@ -4,7 +4,6 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -14,18 +13,28 @@ import fr.mrcubee.survivalgames.kit.Kit;
 
 public class NinjaKit extends Kit {
 
-	private JavaPlugin javaPlugin;
-	private boolean scheduler;
-
-	public NinjaKit(JavaPlugin javaPlugin) {
+	public NinjaKit() {
 		super("Ninja", "In complete darkness\n" + "you become invisible !", new ItemStack(Material.STICK));
-		this.javaPlugin = javaPlugin;
-		this.scheduler = false;
+	}
+
+	@Override
+	public boolean canTakeKit(Player player) {
+		return true;
 	}
 
 	@Override
 	public void givePlayerKit(Player player) {
-		startScheduler();
+
+	}
+
+	@Override
+	public void removePlayerKit(Player player) {
+
+	}
+
+	@Override
+	public boolean canLostItem(ItemStack itemStack) {
+		return true;
 	}
 
 	public void updateInvisible(Player player) {
@@ -64,23 +73,13 @@ public class NinjaKit extends Kit {
 		}
 	}
 
-	private void startScheduler() {
-		if (scheduler)
+	@Override
+	public void update() {
+		if (SurvivalGamesAPI.getGame().getGameStats() != GameStats.DURING)
 			return;
-		this.scheduler = !scheduler;
-		javaPlugin.getServer().getScheduler().scheduleSyncRepeatingTask(javaPlugin, new Runnable() {
-			public void run() {
-				try {
-					if (SurvivalGamesAPI.getGame().getGameStats() != GameStats.DURING)
-						return;
-					for (Player player : getPlayers()) {
-						updateInvisible(player);
-						updateNightVision(player);
-					}
-				} catch (Exception e) {
-				}
-			}
-		}, 0L, 10L);
+		for (Player player : getPlayers()) {
+			updateInvisible(player);
+			updateNightVision(player);
+		}
 	}
-
 }

@@ -4,18 +4,28 @@
     <groupId>fr.mrcubee.minecraft.plugin</groupId>
     <artifactId>survivalgames-kit</artifactId>
     <version>1.0</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
     
     <name>SurvivalGames-Kit</name>
     <description>minecraft survival mini-game kits</description>
 
+    <organization>
+        <name>MrCubee</name>
+        <url>https://github.com/MrCubee</url>
+    </organization>
+
+    <issueManagement>
+        <system>github</system>
+        <url>https://github.com/ArkadGamesNetwork/SurvivalGames-Kit/issues</url>
+    </issueManagement>
+
     <repositories>
         <repository>
-            <id>spigot-repo</id>
-            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
-        </repository>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
+            <id>arkadgames</id>
+            <url>http://nexus.arkadgames.net/repository/minecraft/</url>
         </repository>
     </repositories>
 
@@ -24,11 +34,13 @@
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
             <version>1.8.8-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.ArkadGamesNetwork</groupId>
-            <artifactId>SurvivalGames</artifactId>
-            <version>1.1</version>
+            <groupId>fr.mrcubee.minecraft.plugin</groupId>
+            <artifactId>survivalgames</artifactId>
+            <version>1.2</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

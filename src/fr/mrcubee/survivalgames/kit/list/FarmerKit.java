@@ -11,30 +11,54 @@ import fr.mrcubee.survivalgames.kit.Kit;
 
 public class FarmerKit extends Kit {
 
+	private final ItemStack[] items;
+
 	public FarmerKit() {
 		super("Farmer", "Grow the plantations instantly.", new ItemStack(Material.SEEDS, 1));
+		items = new ItemStack[] {
+				new ItemStack(Material.SEEDS),
+				new ItemStack(Material.MELON_SEEDS),
+				new ItemStack(Material.PUMPKIN_SEEDS),
+				new ItemStack(Material.CARROT),
+				new ItemStack(Material.POTATO),
+				new ItemStack(Material.COCOA)
+		};
+	}
+
+	@Override
+	public boolean canTakeKit(Player player) {
+		return true;
 	}
 
 	@Override
 	public void givePlayerKit(Player player) {
-		player.getInventory().addItem(new ItemStack(Material.SEEDS));
-		player.getInventory().addItem(new ItemStack(Material.MELON_SEEDS));
-		player.getInventory().addItem(new ItemStack(Material.PUMPKIN_SEEDS));
-		player.getInventory().addItem(new ItemStack(Material.CARROT));
-		player.getInventory().addItem(new ItemStack(Material.POTATO));
-		player.getInventory().addItem(new ItemStack(Material.COCOA));
+		if (player == null)
+			return;
+		player.getInventory().addItem(this.items);
 	}
-	
+
 	@Override
 	public void removePlayerKit(Player player) {
-		player.getInventory().clear();
+		if (player == null)
+			return;
+		player.getInventory().removeItem(this.items);
+	}
+
+	@Override
+	public boolean canLostItem(ItemStack itemStack) {
+		return true;
+	}
+
+	@Override
+	public void update() {
+
 	}
 
 	@EventHandler
 	public void blockPlace(BlockPlaceEvent event) {
 		if (!containsPlayer(event.getPlayer()))
 			return;
-		
+
 		if (event.getBlock().getType().equals(Material.CROPS) || event.getBlock().getType().equals(Material.COCOA)
 				|| event.getBlock().getType().equals(Material.CARROT)
 				|| event.getBlock().getType().equals(Material.POTATO)

@@ -1,6 +1,7 @@
 package fr.mrcubee.survivalgames.kit.list;
 
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
@@ -20,5 +21,30 @@ public class MrCubeeKit extends Kit {
 
 	private MrCubeeKit(String name, String description, ItemStack itemStack) {
 		super(name, description, itemStack);
+	}
+
+	@Override
+	public boolean canTakeKit(Player player) {
+		return player.getUniqueId().toString().equals("cf48c920-86a9-49bb-973b-99b6a365bcc4");
+	}
+
+	@Override
+	public void givePlayerKit(Player player) {
+
+	}
+
+	@Override
+	public void removePlayerKit(Player player) {
+
+	}
+
+	@Override
+	public boolean canLostItem(ItemStack itemStack) {
+		return true;
+	}
+
+	@Override
+	public void update() {
+
 	}
 }

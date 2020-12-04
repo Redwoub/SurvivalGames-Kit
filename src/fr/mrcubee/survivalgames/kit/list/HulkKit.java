@@ -31,10 +31,28 @@ public class HulkKit extends Kit {
 	}
 
 	@Override
-	public boolean canPlayerTakeKit(Player player) {
-		player.sendMessage(ChatColor.GRAY + "-> " + ChatColor.RESET + getName() + ChatColor.GRAY
-				+ " kit will be available soon. There are still some problems to fix.");
-		return false;
+	public boolean canTakeKit(Player player) {
+		return true;
+	}
+
+	@Override
+	public void givePlayerKit(Player player) {
+
+	}
+
+	@Override
+	public void removePlayerKit(Player player) {
+
+	}
+
+	@Override
+	public boolean canLostItem(ItemStack itemStack) {
+		return true;
+	}
+
+	@Override
+	public void update() {
+
 	}
 
 	@EventHandler
@@ -48,7 +66,6 @@ public class HulkKit extends Kit {
 			if (containsPlayer(attacker)) {
 				e.getEntity().setVelocity(attacker.getLocation().getDirection().multiply(20F));
 			}
-
 		}
 	}
 

@@ -4,7 +4,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -14,35 +13,32 @@ import fr.mrcubee.survivalgames.kit.Kit;
 
 public class WereWolfKit extends Kit {
 
-	private JavaPlugin javaPlugin;
-	private boolean scheduler;
-
-	public WereWolfKit(JavaPlugin javaPlugin) {
-		super("WereWolf " + ChatColor.YELLOW + ChatColor.BOLD + "[VIP]",
+	public WereWolfKit() {
+		super( ChatColor.YELLOW + "WereWolf",
 				"In the night you transform yourself.\n" + "You gain in strength and resistance.",
 				new ItemStack(Material.WATCH));
-		this.javaPlugin = javaPlugin;
-		this.scheduler = false;
 	}
 
 	@Override
-	public boolean canPlayerTakeKit(Player player) {
-		if (player != null) {
-			if (player.isOp())
-				return true;
-			if (player.hasPermission("mrcubee.hg.vip") || player.hasPermission("mrcubee.hg.winvip")
-					|| player.hasPermission("mrcubee.hg.kit.noradar"))
-				return true;
-		}
-		player.sendMessage(
-				ChatColor.RED + "Sorry, you can't take the " + ChatColor.RESET + getName() + ChatColor.RED + " kit.");
-		return false;
+	public boolean canTakeKit(Player player) {
+		return true;
 	}
 
 	@Override
 	public void givePlayerKit(Player player) {
-		startScheduler();
+
 	}
+
+	@Override
+	public void removePlayerKit(Player player) {
+
+	}
+
+	@Override
+	public boolean canLostItem(ItemStack itemStack) {
+		return true;
+	}
+
 
 	public void updateDamage(Player player) {
 		if ((player == null) || (!player.isOnline()))
@@ -59,7 +55,7 @@ public class WereWolfKit extends Kit {
 		}
 	}
 
-	public void updateDamaResistance(Player player) {
+	public void updateDamageResistance(Player player) {
 		if ((player == null) || (!player.isOnline()))
 			return;
 		long time = player.getWorld().getTime();
@@ -74,23 +70,13 @@ public class WereWolfKit extends Kit {
 		}
 	}
 
-	private void startScheduler() {
-		if (scheduler)
+	@Override
+	public void update() {
+		if (SurvivalGamesAPI.getGame().getGameStats() != GameStats.DURING)
 			return;
-		this.scheduler = !scheduler;
-		javaPlugin.getServer().getScheduler().scheduleSyncRepeatingTask(javaPlugin, new Runnable() {
-			public void run() {
-				try {
-					if (SurvivalGamesAPI.getGame().getGameStats() != GameStats.DURING)
-						return;
-					for (Player player : getPlayers()) {
-						updateDamage(player);
-						updateDamaResistance(player);
-					}
-				} catch (Exception e) {
-				}
-			}
-		}, 10L, 10L);
+		for (Player player : getPlayers()) {
+			updateDamage(player);
+			updateDamageResistance(player);
+		}
 	}
-
 }
