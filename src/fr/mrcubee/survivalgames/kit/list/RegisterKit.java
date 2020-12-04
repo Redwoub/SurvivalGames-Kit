@@ -20,7 +20,8 @@ public class RegisterKit {
 				new ThiefKit(),
 				new WereWolfKit(),
 				new NoRadarKit(),
-				new FakeRadarKit()
+				new FakeRadarKit(),
+				new DeathNote()
 				//MrCubeeKit.generateKit()
 		};
 		SurvivalGames survivalGames = SurvivalGamesAPI.getGame().getPlugin();
