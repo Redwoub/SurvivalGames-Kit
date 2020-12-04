@@ -1,10 +1,12 @@
 package fr.mrcubee.survivalgames.kit.list;
 
+import org.bukkit.Bukkit;
+
 import fr.mrcubee.survivalgames.SurvivalGames;
 import fr.mrcubee.survivalgames.SurvivalGamesAPI;
 import fr.mrcubee.survivalgames.kit.Kit;
 import fr.mrcubee.survivalgames.kit.KitManager;
-import org.bukkit.Bukkit;
+import fr.mrcubee.survivalgames.kit.list.listilusion.IlusionKit;
 
 public class RegisterKit {
 	
@@ -21,7 +23,8 @@ public class RegisterKit {
 				new WereWolfKit(),
 				new NoRadarKit(),
 				new FakeRadarKit(),
-				new DeathNote()
+				new DeathNote(),
+				new IlusionKit()
 				//MrCubeeKit.generateKit()
 		};
 		SurvivalGames survivalGames = SurvivalGamesAPI.getGame().getPlugin();
