@@ -1,11 +1,7 @@
-package fr.mrcubee.survivalgames.kit.list.listilusion;
+package fr.mrcubee.survivalgames.kit.list.illusion;
 
 import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -16,7 +12,7 @@ import org.bukkit.inventory.ItemStack;
 import fr.mrcubee.bukkit.Versions;
 import fr.mrcubee.survivalgames.kit.Kit;
 
-public class IlusionKit extends Kit{
+public class IllusionKit extends Kit{
 	
 	private int entity_id_start;
 	private int entity_id_end;
@@ -25,7 +21,7 @@ public class IlusionKit extends Kit{
 	
 	private Random random;
 	
-	public IlusionKit(){
+	public IllusionKit(){
 		super("Ilusion", "Make you like drogs", getItem());
 		this.random = new Random();
 		this.ids = new HashMap<>();

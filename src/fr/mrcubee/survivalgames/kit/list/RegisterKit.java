@@ -6,7 +6,7 @@ import fr.mrcubee.survivalgames.SurvivalGames;
 import fr.mrcubee.survivalgames.SurvivalGamesAPI;
 import fr.mrcubee.survivalgames.kit.Kit;
 import fr.mrcubee.survivalgames.kit.KitManager;
-import fr.mrcubee.survivalgames.kit.list.listilusion.IlusionKit;
+import fr.mrcubee.survivalgames.kit.list.illusion.IllusionKit;
 
 public class RegisterKit {
 	
@@ -24,7 +24,7 @@ public class RegisterKit {
 				new NoRadarKit(),
 				new FakeRadarKit(),
 				new DeathNote(),
-				new IlusionKit()
+				new IllusionKit()
 				//MrCubeeKit.generateKit()
 		};
 		SurvivalGames survivalGames = SurvivalGamesAPI.getGame().getPlugin();
