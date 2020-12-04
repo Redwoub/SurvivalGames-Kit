@@ -70,15 +70,17 @@ public class DeathNote extends Kit {
     private void executeDeathNote(Player player, String[] lines) {
         Player target;
         StringBuilder nameBuilder;
+        String name;
 
         if (player == null || lines == null)
             return;
         nameBuilder = new StringBuilder();
         nameBuilder.append(lines[0]);
         nameBuilder.append(lines[1]);
-        target = Bukkit.getPlayer(nameBuilder.toString());
+        name = nameBuilder.toString();
+        target = Bukkit.getPlayer(name);
         if (target == null || SurvivalGamesAPI.getGame().isSpectator(player)) {
-            player.sendMessage(DeathNote.MESSAGE_PREFIX + "Le joueur n'existe pas.");
+            player.sendMessage(DeathNote.MESSAGE_PREFIX + "Player " + name + " does not exists.");
             return;
         }
         player.getInventory().remove(this.deathNoteItem);
