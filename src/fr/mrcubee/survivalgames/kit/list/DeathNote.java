@@ -80,8 +80,10 @@ public class DeathNote extends Kit {
         nameBuilder.append(lines[0]);
         nameBuilder.append(lines[1]);
         name = nameBuilder.toString();
+        if (name.isEmpty())
+            return;
         target = Bukkit.getPlayer(name);
-        if (target == null || SurvivalGamesAPI.getGame().isSpectator(player)) {
+        if (target == null || SurvivalGamesAPI.getGame().isSpectator(target)) {
             player.sendMessage(DeathNote.MESSAGE_PREFIX + "Player " + name + " does not exists.");
             return;
         }
