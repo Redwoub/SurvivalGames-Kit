@@ -23,7 +23,8 @@ public class RegisterKit {
 				new WereWolfKit(),
 				new NoRadarKit(),
 				new FakeRadarKit(),
-				new DeathNote()
+				new DeathNote(),
+				new SpiderMan()
 				//new IllusionKit()
 				//MrCubeeKit.generateKit()
 		};
