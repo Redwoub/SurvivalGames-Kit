@@ -94,7 +94,7 @@ public class DeathNote extends Kit {
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
         if (SurvivalGamesAPI.getGame().getGameStats() != GameStats.DURING
-        || event.getAction() != Action.RIGHT_CLICK_AIR && event.getAction() != Action.RIGHT_CLICK_BLOCK || event.getItem() == null
+        || (event.getAction() != Action.RIGHT_CLICK_AIR && event.getAction() != Action.RIGHT_CLICK_BLOCK) || event.getItem() == null
         || !event.getItem().isSimilar(this.deathNoteItem))
             return;
         this.signGUi.open(event.getPlayer(), lines -> executeDeathNote(event.getPlayer(), lines),
