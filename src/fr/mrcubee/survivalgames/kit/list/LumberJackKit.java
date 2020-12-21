@@ -11,19 +11,20 @@ import fr.mrcubee.survivalgames.kit.Kit;
 
 public class LumberJackKit extends Kit {
 
-	private BlockFace[] blockFaces;
+	private final BlockFace[] blockFaces;
 	
 	public LumberJackKit() {
 		super("LumberJack", "You can break whole trees in one shots\n" + "with a wooden axe.",
 				new ItemStack(Material.WOOD_AXE));
-		this.blockFaces = new BlockFace[] {
-				BlockFace.NORTH,
-				BlockFace.SOUTH,
-				BlockFace.EAST,
-				BlockFace.WEST,
-				BlockFace.UP,
-				BlockFace.DOWN
-		};
+		BlockFace[] values = BlockFace.values();
+
+		this.blockFaces = new BlockFace[values.length - 1];
+		for (int i = 0, remove = 0; i < values.length; i++) {
+			if (values[i] != BlockFace.SELF)
+				this.blockFaces[i - remove] = values[i];
+			else
+				remove++;
+		}
 	}
 
 	@Override
@@ -38,7 +39,7 @@ public class LumberJackKit extends Kit {
 
 	@Override
 	public void removePlayerKit(Player player) {
-
+		player.getInventory().removeItem(new ItemStack(Material.WOOD_AXE));
 	}
 
 	@Override
@@ -51,39 +52,44 @@ public class LumberJackKit extends Kit {
 
 	}
 
-	public short breakTree(Block block, short durablility) {
+	public short breakTree(Block block, short durability, int limit) {
 		Block nextBlock;
+		boolean isLeaves;
 		
-		if ((!block.getType().toString().toLowerCase().contains("log")
-				&& !block.getType().toString().toLowerCase().contains("leaves")) || durablility <= 0)
-			return durablility;
+		if (limit < 0 || durability <= 0
+		|| (!(isLeaves = block.getType().toString().toLowerCase().contains("leaves"))
+		&& !block.getType().toString().toLowerCase().contains("log")))
+			return durability;
 		block.breakNaturally();
-		durablility--;
-		for (BlockFace blockFace : blockFaces) {
+		if (!isLeaves)
+			durability--;
+		for (BlockFace blockFace : this.blockFaces) {
 			nextBlock = block.getRelative(blockFace);
-			durablility = breakTree(nextBlock, durablility);
-			if (durablility <= 0)
-				return durablility;
+			durability = breakTree(nextBlock, durability, limit - 1);
+			if (durability <= 0)
+				return durability;
 		}
-		return durablility;
+		return durability;
 	}
 
 	@EventHandler
 	public void breakBlock(BlockBreakEvent event) {
+		short durability;
+
 		if ((!containsPlayer(event.getPlayer())) || (event.getPlayer().getItemInHand() == null)
-				|| (!event.getPlayer().getItemInHand().getType().toString().toLowerCase().contains("axe")))
+		|| (!event.getPlayer().getItemInHand().getType().toString().toLowerCase().contains("axe")))
 			return;
 		ItemStack itemStack = event.getPlayer().getItemInHand();
 		Block block = event.getBlock();
 		if ((!block.getType().toString().toLowerCase().contains("log"))
-				&& (!block.getType().toString().toLowerCase().contains("leaves")))
+		&& (!block.getType().toString().toLowerCase().contains("leaves")))
 			return;
 		event.setCancelled(true);
-		short durablility = breakTree(event.getBlock(),
-				(short) (itemStack.getType().getMaxDurability() - itemStack.getDurability()));
-		if (durablility <= 0)
+		durability = breakTree(event.getBlock(),
+		(short) (itemStack.getType().getMaxDurability() - itemStack.getDurability()), 500);
+		if (durability <= 0)
 			event.getPlayer().setItemInHand(null);
 		else
-			itemStack.setDurability((short) (itemStack.getType().getMaxDurability() - durablility));
+			itemStack.setDurability((short) (itemStack.getType().getMaxDurability() - durability));
 	}
 }
