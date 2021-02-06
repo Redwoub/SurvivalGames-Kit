@@ -1,5 +1,6 @@
 package fr.mrcubee.survivalgames.kit.list;
 
+import fr.mrcubee.langlib.Lang;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Monster;
@@ -15,8 +16,7 @@ import fr.mrcubee.survivalgames.kit.Kit;
 public class MonsterKit extends Kit {
 
 	public MonsterKit() {
-		super("Monster", "Monsters take you for one of their\n" + "They will not attack you.",
-				new ItemStack(Material.ROTTEN_FLESH));
+		super("Monster", "kit.monster.name", "kit.monster.description", new ItemStack(Material.ROTTEN_FLESH));
 	}
 
 	@Override
@@ -37,6 +37,20 @@ public class MonsterKit extends Kit {
 	@Override
 	public boolean canLostItem(ItemStack itemStack) {
 		return true;
+	}
+
+	@Override
+	public String getDisplayName(Player player) {
+		if (player == null)
+			return null;
+		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+	}
+
+	@Override
+	public String getDescription(Player player) {
+		if (player == null)
+			return null;
+		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
 	}
 
 	@Override

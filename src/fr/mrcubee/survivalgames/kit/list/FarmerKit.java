@@ -1,5 +1,6 @@
 package fr.mrcubee.survivalgames.kit.list;
 
+import fr.mrcubee.langlib.Lang;
 import org.bukkit.CropState;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -14,7 +15,7 @@ public class FarmerKit extends Kit {
 	private final ItemStack[] items;
 
 	public FarmerKit() {
-		super("Farmer", "Grow the plantations instantly.", new ItemStack(Material.SEEDS, 1));
+		super("Farmer", "kit.farmer.name", "kit.farmer.description", new ItemStack(Material.SEEDS, 1));
 		items = new ItemStack[] {
 				new ItemStack(Material.SEEDS),
 				new ItemStack(Material.MELON_SEEDS),
@@ -47,6 +48,20 @@ public class FarmerKit extends Kit {
 	@Override
 	public boolean canLostItem(ItemStack itemStack) {
 		return true;
+	}
+
+	@Override
+	public String getDisplayName(Player player) {
+		if (player == null)
+			return null;
+		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+	}
+
+	@Override
+	public String getDescription(Player player) {
+		if (player == null)
+			return null;
+		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
 	}
 
 	@Override

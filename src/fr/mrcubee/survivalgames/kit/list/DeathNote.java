@@ -1,5 +1,6 @@
 package fr.mrcubee.survivalgames.kit.list;
 
+import fr.mrcubee.langlib.Lang;
 import fr.mrcubee.sign.gui.SignGUi;
 import fr.mrcubee.survivalgames.GameStats;
 import fr.mrcubee.survivalgames.SurvivalGamesAPI;
@@ -25,7 +26,7 @@ public class DeathNote extends Kit {
     private final ItemStack deathNoteItem;
 
     protected DeathNote() {
-        super("DeathNote", "Tuez le joueur que vous voulez.", new ItemStack(Material.PAPER, 1));
+        super("DeathNote","kit.deathNote.name", "kit.deathNote.description", new ItemStack(Material.PAPER, 1));
         ItemMeta itemMeta;
 
         this.deathNoteItem = new ItemStack(Material.PAPER, 1);
@@ -62,6 +63,20 @@ public class DeathNote extends Kit {
     @Override
     public boolean canLostItem(ItemStack itemStack) {
         return (itemStack == null || !itemStack.isSimilar(this.deathNoteItem));
+    }
+
+    @Override
+    public String getDisplayName(Player player) {
+        if (player == null)
+            return null;
+        return Lang.getMessage(player, getNameId(), "&cERROR", true);
+    }
+
+    @Override
+    public String getDescription(Player player) {
+        if (player == null)
+            return null;
+        return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
     }
 
     @Override

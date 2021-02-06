@@ -1,5 +1,6 @@
 package fr.mrcubee.survivalgames.kit;
 
+import fr.mrcubee.langlib.Lang;
 import org.bukkit.plugin.java.JavaPlugin;
 import fr.mrcubee.survivalgames.kit.list.RegisterKit;
 
@@ -20,6 +21,7 @@ public class SurvivalGamesKit extends JavaPlugin {
 			this.getServer().getPluginManager().disablePlugin(this);
 			return;
 		}
+		Lang.setDefaultLang(Lang.EN_US);
 		RegisterKit.register();
 	}
 

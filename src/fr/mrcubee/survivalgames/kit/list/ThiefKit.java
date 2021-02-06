@@ -3,6 +3,8 @@ package fr.mrcubee.survivalgames.kit.list;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+
+import fr.mrcubee.langlib.Lang;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -21,7 +23,7 @@ public class ThiefKit extends Kit {
 	private final Map<Player, Player> thiefTargets;
 	
 	public ThiefKit() {
-		super(ChatColor.RED + "Thief", "When you are within 4 blocks of another player\nyou can steal it.",
+		super("Thief", "kit.thief.name", "kit.thief.description",
 				new ItemStack(Material.EYE_OF_ENDER, 1));
 		this.thiefTargets = new HashMap<Player, Player>();;
 	}
@@ -44,6 +46,20 @@ public class ThiefKit extends Kit {
 	@Override
 	public boolean canLostItem(ItemStack itemStack) {
 		return true;
+	}
+
+	@Override
+	public String getDisplayName(Player player) {
+		if (player == null)
+			return null;
+		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+	}
+
+	@Override
+	public String getDescription(Player player) {
+		if (player == null)
+			return null;
+		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
 	}
 
 	@Override

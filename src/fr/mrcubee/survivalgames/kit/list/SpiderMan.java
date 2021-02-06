@@ -1,5 +1,6 @@
 package fr.mrcubee.survivalgames.kit.list;
 
+import fr.mrcubee.langlib.Lang;
 import fr.mrcubee.survivalgames.GameStats;
 import fr.mrcubee.survivalgames.SurvivalGamesAPI;
 import fr.mrcubee.survivalgames.kit.Kit;
@@ -27,7 +28,7 @@ public class SpiderMan extends Kit {
     private final Set<Projectile> projectiles;
 
     public SpiderMan() {
-        super("SpiderMan", "Trapped players in your web.", new ItemStack(Material.WEB, 1));
+        super("SpiderMan", "kit.spiderMan.name", "kit.spiderMan.description", new ItemStack(Material.WEB, 1));
         ItemMeta itemMeta;
 
         this.webLauncherItem = new ItemStack(Material.WEB, 1);
@@ -62,6 +63,20 @@ public class SpiderMan extends Kit {
     @Override
     public boolean canLostItem(ItemStack itemStack) {
         return (itemStack == null || !itemStack.isSimilar(this.webLauncherItem));
+    }
+
+    @Override
+    public String getDisplayName(Player player) {
+        if (player == null)
+            return null;
+        return Lang.getMessage(player, getNameId(), "&cERROR", true);
+    }
+
+    @Override
+    public String getDescription(Player player) {
+        if (player == null)
+            return null;
+        return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
     }
 
     @Override

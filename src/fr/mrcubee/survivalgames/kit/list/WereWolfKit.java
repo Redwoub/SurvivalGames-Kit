@@ -1,5 +1,6 @@
 package fr.mrcubee.survivalgames.kit.list;
 
+import fr.mrcubee.langlib.Lang;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -14,9 +15,7 @@ import fr.mrcubee.survivalgames.kit.Kit;
 public class WereWolfKit extends Kit {
 
 	public WereWolfKit() {
-		super( ChatColor.YELLOW + "WereWolf",
-				"In the night you transform yourself.\n" + "You gain in strength and resistance.",
-				new ItemStack(Material.WATCH));
+		super( "WereWolf", "kit.wereWolf.name", "kit.wereWolf.description", new ItemStack(Material.WATCH));
 	}
 
 	@Override
@@ -39,6 +38,19 @@ public class WereWolfKit extends Kit {
 		return true;
 	}
 
+	@Override
+	public String getDisplayName(Player player) {
+		if (player == null)
+			return null;
+		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+	}
+
+	@Override
+	public String getDescription(Player player) {
+		if (player == null)
+			return null;
+		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
+	}
 
 	public void updateDamage(Player player) {
 		if ((player == null) || (!player.isOnline()))

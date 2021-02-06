@@ -1,5 +1,6 @@
 package fr.mrcubee.survivalgames.kit.list;
 
+import fr.mrcubee.langlib.Lang;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -14,7 +15,7 @@ public class LumberJackKit extends Kit {
 	private final BlockFace[] blockFaces;
 	
 	public LumberJackKit() {
-		super("LumberJack", "You can break whole trees in one shots\n" + "with a wooden axe.",
+		super("LumberJack", "kit.lumberJack.name", "kit.lumberJack.description",
 				new ItemStack(Material.WOOD_AXE));
 		BlockFace[] values = BlockFace.values();
 
@@ -45,6 +46,20 @@ public class LumberJackKit extends Kit {
 	@Override
 	public boolean canLostItem(ItemStack itemStack) {
 		return true;
+	}
+
+	@Override
+	public String getDisplayName(Player player) {
+		if (player == null)
+			return null;
+		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+	}
+
+	@Override
+	public String getDescription(Player player) {
+		if (player == null)
+			return null;
+		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
 	}
 
 	@Override

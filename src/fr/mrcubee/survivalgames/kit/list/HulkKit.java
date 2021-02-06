@@ -1,6 +1,6 @@
 package fr.mrcubee.survivalgames.kit.list;
 
-import org.bukkit.ChatColor;
+import fr.mrcubee.langlib.Lang;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -20,14 +20,14 @@ public class HulkKit extends Kit {
 	public static HulkKit generateKit() {
 		ItemStack itemStack = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
 		SkullMeta skullMeta = (SkullMeta) itemStack.getItemMeta();
+
 		skullMeta.setOwner("Incredible_Hulk");
 		itemStack.setItemMeta(skullMeta);
-		return new HulkKit("Hulk " + ChatColor.LIGHT_PURPLE + ChatColor.BOLD + "[WINNER]",
-				"When you hit a player\n" + "you will kick him away with Hulk's strength !", itemStack);
+		return new HulkKit("Hulk", "kit.hulk.name", "kit.hulk.description", itemStack);
 	}
 
-	private HulkKit(String name, String description, ItemStack itemStack) {
-		super(name, description, itemStack);
+	private HulkKit(String name, String nameId, String descriptionId, ItemStack itemStack) {
+		super(name, nameId, descriptionId, itemStack);
 	}
 
 	@Override
@@ -48,6 +48,20 @@ public class HulkKit extends Kit {
 	@Override
 	public boolean canLostItem(ItemStack itemStack) {
 		return true;
+	}
+
+	@Override
+	public String getDisplayName(Player player) {
+		if (player == null)
+			return null;
+		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+	}
+
+	@Override
+	public String getDescription(Player player) {
+		if (player == null)
+			return null;
+		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
 	}
 
 	@Override

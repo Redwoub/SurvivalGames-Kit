@@ -1,5 +1,6 @@
 package fr.mrcubee.survivalgames.kit.list;
 
+import fr.mrcubee.langlib.Lang;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -13,9 +14,7 @@ import fr.mrcubee.survivalgames.kit.Kit;
 public class NoRadarKit extends Kit {
 
 	public NoRadarKit() {
-		super( ChatColor.YELLOW + "NoRadar", "you are not recognizable by the radar\n"
-				+ "as long as there are more than 2 players in the game\n" + "who do not have this Kit.",
-				new ItemStack(Material.BARRIER));
+		super( "NoRadar", "kit.noRadar.name", "kit.noRadar.description", new ItemStack(Material.BARRIER));
 	}
 
 	@Override
@@ -36,6 +35,20 @@ public class NoRadarKit extends Kit {
 	@Override
 	public boolean canLostItem(ItemStack itemStack) {
 		return true;
+	}
+
+	@Override
+	public String getDisplayName(Player player) {
+		if (player == null)
+			return null;
+		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+	}
+
+	@Override
+	public String getDescription(Player player) {
+		if (player == null)
+			return null;
+		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
 	}
 
 	@Override

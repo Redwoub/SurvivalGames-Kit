@@ -1,5 +1,6 @@
 package fr.mrcubee.survivalgames.kit.list;
 
+import fr.mrcubee.langlib.Lang;
 import fr.mrcubee.survivalgames.SurvivalGamesAPI;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -15,8 +16,7 @@ public class MinerKit extends Kit {
 	private final ItemStack[] items;
 
 	public MinerKit() {
-		super("Miner", "You appear with:\n" + "- 1x Stone pickaxe durability 2 and efficiency 5",
-				new ItemStack(Material.STONE_PICKAXE));
+		super("Miner", "kit.miner.name", "kit.miner.description", new ItemStack(Material.STONE_PICKAXE));
 		ItemMeta itemMeta;
 
 		this.items = new ItemStack[] {
@@ -57,6 +57,20 @@ public class MinerKit extends Kit {
 			if (itemStack.isSimilar(item))
 				return false;
 		return true;
+	}
+
+	@Override
+	public String getDisplayName(Player player) {
+		if (player == null)
+			return null;
+		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+	}
+
+	@Override
+	public String getDescription(Player player) {
+		if (player == null)
+			return null;
+		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
 	}
 
 	@Override

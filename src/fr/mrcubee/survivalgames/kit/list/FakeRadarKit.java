@@ -1,5 +1,6 @@
 package fr.mrcubee.survivalgames.kit.list;
 
+import fr.mrcubee.langlib.Lang;
 import fr.mrcubee.survivalgames.SurvivalGamesAPI;
 import fr.mrcubee.survivalgames.api.event.PlayerRadarEvent;
 import fr.mrcubee.survivalgames.kit.Kit;
@@ -23,8 +24,7 @@ public class FakeRadarKit extends Kit {
 	private HashMap<Player, Location> players;
 
 	public FakeRadarKit() {
-		super("FakeRadar", "You can misplace your position on the radar.",
-				new ItemStack(Material.COMPASS));
+		super("FakeRadar", "kit.fakeRadar.name", "kit.fakeRadar.description", new ItemStack(Material.COMPASS));
 		this.players = new HashMap<Player, Location>();
 	}
 
@@ -49,6 +49,20 @@ public class FakeRadarKit extends Kit {
 	}
 
 	@Override
+	public String getDisplayName(Player player) {
+		if (player == null)
+			return null;
+		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+	}
+
+	@Override
+	public String getDescription(Player player) {
+		if (player == null)
+			return null;
+		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
+	}
+
+	@Override
 	public void update() {
 
 	}
@@ -61,7 +75,8 @@ public class FakeRadarKit extends Kit {
 		|| event.getItem() == null || !event.getItem().isSimilar(kitManager.getRadarItem()) || !containsPlayer(event.getPlayer()))
 			return;
 		this.players.put(event.getPlayer(), event.getClickedBlock().getLocation());
-		event.getPlayer().sendMessage(ChatColor.GRAY + "You set your new position on the players' radar.");
+		event.getPlayer().sendMessage(Lang.getMessage(event.getPlayer(), "kit.fakeRadar.location.set",
+				"&7You have set your new position on the player radar.", true));
 	}
 
 	@EventHandler(priority = EventPriority.MONITOR)
@@ -74,7 +89,8 @@ public class FakeRadarKit extends Kit {
 		if (target == null || target.distance(event.getTo()) <= 20)
 			return;
 		this.players.remove(event.getPlayer());
-		event.getPlayer().sendMessage(ChatColor.GRAY + "Your false location has been deleted because you are too far away.");
+		event.getPlayer().sendMessage(Lang.getMessage(event.getPlayer(), "kit.fakeRadar.location.remove",
+				"&7Your false location has been deleted because you are too far away.", true));
 	}
 
 	@EventHandler

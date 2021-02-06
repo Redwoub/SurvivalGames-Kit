@@ -1,5 +1,6 @@
 package fr.mrcubee.survivalgames.kit.list;
 
+import fr.mrcubee.langlib.Lang;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -14,8 +15,7 @@ public class ArcherKit extends Kit {
     private final ItemStack[] items;
 
     public ArcherKit() {
-        super("Archer", "You appear with:\n" + "- 1x Bow power 1 and infinity 1\n" + "- 1x Arrow",
-                new ItemStack(Material.BOW));
+        super("Archer", "kit.archer.name", "kit.archer.description", new ItemStack(Material.BOW));
         ItemMeta itemMeta;
 
         this.items = new ItemStack[]{
@@ -57,6 +57,20 @@ public class ArcherKit extends Kit {
             if (itemStack.isSimilar(item))
                 return false;
         return true;
+    }
+
+    @Override
+    public String getDisplayName(Player player) {
+        if (player == null)
+            return null;
+        return Lang.getMessage(player, getNameId(), "&cERROR", true);
+    }
+
+    @Override
+    public String getDescription(Player player) {
+        if (player == null)
+            return null;
+        return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
     }
 
     @Override

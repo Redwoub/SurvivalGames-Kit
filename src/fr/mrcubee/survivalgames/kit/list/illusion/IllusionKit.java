@@ -3,6 +3,7 @@ package fr.mrcubee.survivalgames.kit.list.illusion;
 import java.lang.reflect.Field;
 import java.util.*;
 
+import fr.mrcubee.langlib.Lang;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -22,7 +23,7 @@ public class IllusionKit extends Kit{
 	private Random random;
 	
 	public IllusionKit(){
-		super("Ilusion", "Make you like drogs", getItem());
+		super("Ilusion", "Ilusion", "Make you like drogs", getItem());
 		this.random = new Random();
 		this.ids = new HashMap<>();
 		this.clones = new HashMap<>();
@@ -35,6 +36,20 @@ public class IllusionKit extends Kit{
 	@Override
 	public boolean canLostItem(ItemStack item){
 		return true;
+	}
+
+	@Override
+	public String getDisplayName(Player player) {
+		if (player == null)
+			return null;
+		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+	}
+
+	@Override
+	public String getDescription(Player player) {
+		if (player == null)
+			return null;
+		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
 	}
 
 	@Override

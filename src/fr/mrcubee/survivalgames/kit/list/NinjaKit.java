@@ -1,5 +1,6 @@
 package fr.mrcubee.survivalgames.kit.list;
 
+import fr.mrcubee.langlib.Lang;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -14,7 +15,7 @@ import fr.mrcubee.survivalgames.kit.Kit;
 public class NinjaKit extends Kit {
 
 	public NinjaKit() {
-		super("Ninja", "In complete darkness\n" + "you become invisible !", new ItemStack(Material.STICK));
+		super("Ninja", "kit.ninja.name", "kit.ninja.description", new ItemStack(Material.STICK));
 	}
 
 	@Override
@@ -35,6 +36,20 @@ public class NinjaKit extends Kit {
 	@Override
 	public boolean canLostItem(ItemStack itemStack) {
 		return true;
+	}
+
+	@Override
+	public String getDisplayName(Player player) {
+		if (player == null)
+			return null;
+		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+	}
+
+	@Override
+	public String getDescription(Player player) {
+		if (player == null)
+			return null;
+		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
 	}
 
 	public void updateInvisible(Player player) {

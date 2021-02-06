@@ -1,5 +1,6 @@
 package fr.mrcubee.survivalgames.kit.list;
 
+import fr.mrcubee.langlib.Lang;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -14,13 +15,11 @@ public class MrCubeeKit extends Kit {
 		SkullMeta skullMeta = (SkullMeta) itemStack.getItemMeta();
 		skullMeta.setOwner("MrCubee");
 		itemStack.setItemMeta(skullMeta);
-		return new MrCubeeKit("MrCubee", "This head is the one of the person\n" + "who develop this plugin.\n" + "\n"
-				+ "This kit changes frequently.\n" + "Because it is an experimental kit\n" + "to test future kits.",
-				itemStack);
+		return new MrCubeeKit("MrCubee", "kit.mrcubee.name", "kit.mrcubee.description", itemStack);
 	}
 
-	private MrCubeeKit(String name, String description, ItemStack itemStack) {
-		super(name, description, itemStack);
+	private MrCubeeKit(String name, String nameId, String descriptionId, ItemStack itemStack) {
+		super(name, nameId, descriptionId, itemStack);
 	}
 
 	@Override
@@ -41,6 +40,20 @@ public class MrCubeeKit extends Kit {
 	@Override
 	public boolean canLostItem(ItemStack itemStack) {
 		return true;
+	}
+
+	@Override
+	public String getDisplayName(Player player) {
+		if (player == null)
+			return null;
+		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+	}
+
+	@Override
+	public String getDescription(Player player) {
+		if (player == null)
+			return null;
+		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
 	}
 
 	@Override

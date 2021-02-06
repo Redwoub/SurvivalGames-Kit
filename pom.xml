@@ -4,10 +4,6 @@
     <groupId>fr.mrcubee.minecraft.plugin</groupId>
     <artifactId>survivalgames-kit</artifactId>
     <version>1.0</version>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
     
     <name>SurvivalGames-Kit</name>
     <description>minecraft survival mini-game kits</description>
@@ -17,6 +13,25 @@
         <url>https://github.com/MrCubee</url>
     </organization>
 
+    <developers>
+        <developer>
+            <id>mrcubee</id>
+            <name>MrCubee</name>
+            <email>contact@mrcubee.fr</email>
+            <url>https://github.com/MrCubee</url>
+        </developer>
+        <developer>
+            <id>jeffcheasey88</id>
+            <name>jeffcheasey88</name>
+            <url>https://github.com/jeffcheasey88</url>
+        </developer>
+        <developer>
+            <id>redwoub</id>
+            <name>Redwoub</name>
+            <url>https://github.com/redwoub</url>
+        </developer>
+    </developers>
+
     <issueManagement>
         <system>github</system>
         <url>https://github.com/ArkadGamesNetwork/SurvivalGames-Kit/issues</url>
@@ -24,8 +39,12 @@
 
     <repositories>
         <repository>
-            <id>arkadgames</id>
-            <url>http://nexus.arkadgames.net/repository/minecraft/</url>
+            <id>mrcubee-private</id>
+            <url>http://nexus.mrcubee.net/repository/arkadgames/</url>
+        </repository>
+        <repository>
+            <id>mrcubee-public</id>
+            <url>http://nexus.mrcubee.net/repository/minecraft/</url>
         </repository>
     </repositories>
 
@@ -48,21 +67,33 @@
             <version>1.0</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>fr.mrcubee.minecraft.library</groupId>
+            <artifactId>languagelib</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <build>
         <defaultGoal>clean install</defaultGoal>
         <sourceDirectory>src</sourceDirectory>
-        <finalName>${project.name}-noShade</finalName>
+        <finalName>${project.name}</finalName>
         <resources>
             <resource>
                 <directory>resource</directory>
+                <filtering>true</filtering>
             </resource>
         </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
                 <configuration>
                     <source>8</source>
                     <target>8</target>
@@ -82,8 +113,16 @@
                 </executions>
                 <configuration>
                     <createDependencyReducedPom>false</createDependencyReducedPom>
-                    <shadedArtifactAttached>true</shadedArtifactAttached>
-                    <finalName>${project.name}</finalName>
+                    <shadedArtifactAttached>false</shadedArtifactAttached>
+                    <finalName>${pom.name}</finalName>
+                    <filters>
+                        <filter>
+                            <artifact>*:*</artifact>
+                            <excludes>
+                                <exclude>META-INF/</exclude>
+                            </excludes>
+                        </filter>
+                    </filters>
                 </configuration>
             </plugin>
         </plugins>
