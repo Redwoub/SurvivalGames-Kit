@@ -6,6 +6,8 @@ kit.creeper.description=When you die, you make a huge explosion.
 
 kit.deathNote.name=DeathNote
 kit.deathNote.description=Kill the player you want.
+kit.deathNote.message.prefix=&d[DEATH NOTE] &a
+kit.deathNote.message.kill.error=Player %s does not exists.
 
 kit.fakeRadar.name=FakeRadar
 kit.fakeRadar.description=You can trick your position on the radar.

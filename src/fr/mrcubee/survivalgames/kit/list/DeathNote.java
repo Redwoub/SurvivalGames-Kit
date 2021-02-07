@@ -20,8 +20,6 @@ import java.util.Arrays;
 
 public class DeathNote extends Kit {
 
-    private static final String MESSAGE_PREFIX = ChatColor.LIGHT_PURPLE + "[DEATH NOTE] " + ChatColor.GREEN;
-
     private final SignGUi signGUi;
     private final ItemStack deathNoteItem;
 
@@ -88,6 +86,7 @@ public class DeathNote extends Kit {
         Player target;
         StringBuilder nameBuilder;
         String name;
+        String prefix;
 
         if (player == null || lines == null)
             return;
@@ -99,7 +98,9 @@ public class DeathNote extends Kit {
             return;
         target = Bukkit.getPlayer(name);
         if (target == null || SurvivalGamesAPI.getGame().isSpectator(target)) {
-            player.sendMessage(DeathNote.MESSAGE_PREFIX + "Player " + name + " does not exists.");
+            prefix = Lang.getMessage(player, "kit.deathNote.message.prefix", "&d[DEATH NOTE] &a", true);
+            player.sendMessage(prefix + Lang.getMessage(player, "kit.deathNote.message.kill.error",
+                    "Player %s does not exists.", true, name));
             return;
         }
         player.getInventory().remove(this.deathNoteItem);

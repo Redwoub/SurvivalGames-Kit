@@ -6,6 +6,8 @@ kit.creeper.description=当您死亡时，您将发生巨大的爆炸。
 
 kit.deathNote.name=死亡笔记
 kit.deathNote.description=杀死想要的玩家。
+kit.deathNote.message.prefix=&d[死亡笔记] &a
+kit.deathNote.message.kill.error=%s播放器不存在。
 
 kit.fakeRadar.name=假雷达
 kit.fakeRadar.description=您可能会误导您在雷达上的位置。
