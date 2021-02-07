@@ -15,7 +15,7 @@ import fr.mrcubee.survivalgames.kit.Kit;
 public class WereWolfKit extends Kit {
 
 	public WereWolfKit() {
-		super( "WereWolf", "kit.wereWolf.name", "kit.wereWolf.description", new ItemStack(Material.WATCH));
+		super( "WereWolf", new ItemStack(Material.WATCH));
 	}
 
 	@Override
@@ -42,14 +42,14 @@ public class WereWolfKit extends Kit {
 	public String getDisplayName(Player player) {
 		if (player == null)
 			return null;
-		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+		return Lang.getMessage(player, "kit.wereWolf.name", "&cERROR", true);
 	}
 
 	@Override
 	public String getDescription(Player player) {
 		if (player == null)
 			return null;
-		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
+		return Lang.getMessage(player, "kit.wereWolf.description", "&cERROR", true);
 	}
 
 	public void updateDamage(Player player) {

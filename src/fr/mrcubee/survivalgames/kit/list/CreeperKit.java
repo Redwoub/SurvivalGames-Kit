@@ -12,7 +12,7 @@ import fr.mrcubee.survivalgames.kit.Kit;
 public class CreeperKit extends Kit {
 	
 	public CreeperKit() {
-		super("Creeper", "kit.creeper.name", "kit.creeper.description", new ItemStack(Material.TNT));
+		super("Creeper", new ItemStack(Material.TNT));
 	}
 
 	@Override
@@ -39,14 +39,14 @@ public class CreeperKit extends Kit {
 	public String getDisplayName(Player player) {
 		if (player == null)
 			return null;
-		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+		return Lang.getMessage(player, "kit.creeper.name", "&cERROR", true);
 	}
 
 	@Override
 	public String getDescription(Player player) {
 		if (player == null)
 			return null;
-		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
+		return Lang.getMessage(player, "kit.creeper.description", "&cERROR", true);
 	}
 
 	@Override

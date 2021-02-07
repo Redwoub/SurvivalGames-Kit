@@ -14,7 +14,7 @@ import fr.mrcubee.survivalgames.kit.Kit;
 public class NoRadarKit extends Kit {
 
 	public NoRadarKit() {
-		super( "NoRadar", "kit.noRadar.name", "kit.noRadar.description", new ItemStack(Material.BARRIER));
+		super( "NoRadar", new ItemStack(Material.BARRIER));
 	}
 
 	@Override
@@ -41,14 +41,14 @@ public class NoRadarKit extends Kit {
 	public String getDisplayName(Player player) {
 		if (player == null)
 			return null;
-		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+		return Lang.getMessage(player, "kit.noRadar.name", "&cERROR", true);
 	}
 
 	@Override
 	public String getDescription(Player player) {
 		if (player == null)
 			return null;
-		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
+		return Lang.getMessage(player, "kit.noRadar.description", "&cERROR", true);
 	}
 
 	@Override

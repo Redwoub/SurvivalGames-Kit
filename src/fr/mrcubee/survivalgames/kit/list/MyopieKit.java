@@ -1,6 +1,5 @@
 package fr.mrcubee.survivalgames.kit.list;
 
-import fr.mrcubee.langlib.Lang;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -15,10 +14,7 @@ import fr.mrcubee.survivalgames.kit.Kit;
 public class MyopieKit extends Kit {
 	
 	public MyopieKit(JavaPlugin javaPlugin) {
-		super("MyopieKit", "MyopieKit",
-				"Le kit Myopie c'est quoi?\n" + "Donc alors mon enfant tu obtiens un baton de KnockBack1\n"
-						+ "Mes le probleme c'est que tu et Myop donc ta vue est moin bon",
-				new ItemStack(Material.PUMPKIN, 1));
+		super("MyopieKit", new ItemStack(Material.PUMPKIN, 1));
 	}
 
 	@Override
@@ -43,16 +39,12 @@ public class MyopieKit extends Kit {
 
 	@Override
 	public String getDisplayName(Player player) {
-		if (player == null)
-			return null;
-		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+		return null;
 	}
 
 	@Override
 	public String getDescription(Player player) {
-		if (player == null)
-			return null;
-		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
+		return null;
 	}
 
 	@Override

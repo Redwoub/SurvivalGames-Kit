@@ -24,7 +24,7 @@ public class FakeRadarKit extends Kit {
 	private HashMap<Player, Location> players;
 
 	public FakeRadarKit() {
-		super("FakeRadar", "kit.fakeRadar.name", "kit.fakeRadar.description", new ItemStack(Material.COMPASS));
+		super("FakeRadar", new ItemStack(Material.COMPASS));
 		this.players = new HashMap<Player, Location>();
 	}
 
@@ -52,14 +52,14 @@ public class FakeRadarKit extends Kit {
 	public String getDisplayName(Player player) {
 		if (player == null)
 			return null;
-		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+		return Lang.getMessage(player, "kit.fakeRadar.name", "&cERROR", true);
 	}
 
 	@Override
 	public String getDescription(Player player) {
 		if (player == null)
 			return null;
-		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
+		return Lang.getMessage(player, "kit.fakeRadar.description", "&cERROR", true);
 	}
 
 	@Override

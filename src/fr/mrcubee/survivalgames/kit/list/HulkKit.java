@@ -23,11 +23,11 @@ public class HulkKit extends Kit {
 
 		skullMeta.setOwner("Incredible_Hulk");
 		itemStack.setItemMeta(skullMeta);
-		return new HulkKit("Hulk", "kit.hulk.name", "kit.hulk.description", itemStack);
+		return new HulkKit("Hulk", itemStack);
 	}
 
-	private HulkKit(String name, String nameId, String descriptionId, ItemStack itemStack) {
-		super(name, nameId, descriptionId, itemStack);
+	private HulkKit(String name, ItemStack itemStack) {
+		super(name, itemStack);
 	}
 
 	@Override
@@ -54,14 +54,14 @@ public class HulkKit extends Kit {
 	public String getDisplayName(Player player) {
 		if (player == null)
 			return null;
-		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+		return Lang.getMessage(player, "kit.hulk.name", "&cERROR", true);
 	}
 
 	@Override
 	public String getDescription(Player player) {
 		if (player == null)
 			return null;
-		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
+		return Lang.getMessage(player, "kit.hulk.description", "&cERROR", true);
 	}
 
 	@Override

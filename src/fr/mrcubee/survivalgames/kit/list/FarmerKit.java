@@ -15,7 +15,7 @@ public class FarmerKit extends Kit {
 	private final ItemStack[] items;
 
 	public FarmerKit() {
-		super("Farmer", "kit.farmer.name", "kit.farmer.description", new ItemStack(Material.SEEDS, 1));
+		super("Farmer", new ItemStack(Material.SEEDS, 1));
 		items = new ItemStack[] {
 				new ItemStack(Material.SEEDS),
 				new ItemStack(Material.MELON_SEEDS),
@@ -54,14 +54,14 @@ public class FarmerKit extends Kit {
 	public String getDisplayName(Player player) {
 		if (player == null)
 			return null;
-		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+		return Lang.getMessage(player, "kit.farmer.name", "&cERROR", true);
 	}
 
 	@Override
 	public String getDescription(Player player) {
 		if (player == null)
 			return null;
-		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
+		return Lang.getMessage(player, "kit.farmer.description", "&cERROR", true);
 	}
 
 	@Override

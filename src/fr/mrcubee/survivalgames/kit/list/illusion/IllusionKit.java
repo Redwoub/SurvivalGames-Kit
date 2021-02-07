@@ -23,7 +23,7 @@ public class IllusionKit extends Kit{
 	private Random random;
 	
 	public IllusionKit(){
-		super("Ilusion", "Ilusion", "Make you like drogs", getItem());
+		super("Ilusion", getItem());
 		this.random = new Random();
 		this.ids = new HashMap<>();
 		this.clones = new HashMap<>();
@@ -40,16 +40,12 @@ public class IllusionKit extends Kit{
 
 	@Override
 	public String getDisplayName(Player player) {
-		if (player == null)
-			return null;
-		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+		return null;
 	}
 
 	@Override
 	public String getDescription(Player player) {
-		if (player == null)
-			return null;
-		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
+		return null;
 	}
 
 	@Override

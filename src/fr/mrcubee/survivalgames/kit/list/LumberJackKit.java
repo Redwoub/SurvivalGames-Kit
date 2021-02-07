@@ -15,8 +15,7 @@ public class LumberJackKit extends Kit {
 	private final BlockFace[] blockFaces;
 	
 	public LumberJackKit() {
-		super("LumberJack", "kit.lumberJack.name", "kit.lumberJack.description",
-				new ItemStack(Material.WOOD_AXE));
+		super("LumberJack", new ItemStack(Material.WOOD_AXE));
 		BlockFace[] values = BlockFace.values();
 
 		this.blockFaces = new BlockFace[values.length - 1];
@@ -52,14 +51,14 @@ public class LumberJackKit extends Kit {
 	public String getDisplayName(Player player) {
 		if (player == null)
 			return null;
-		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+		return Lang.getMessage(player, "kit.lumberJack.name", "&cERROR", true);
 	}
 
 	@Override
 	public String getDescription(Player player) {
 		if (player == null)
 			return null;
-		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
+		return Lang.getMessage(player, "kit.lumberJack.description", "&cERROR", true);
 	}
 
 	@Override

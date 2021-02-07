@@ -28,7 +28,7 @@ public class SpiderMan extends Kit {
     private final Set<Projectile> projectiles;
 
     public SpiderMan() {
-        super("SpiderMan", "kit.spiderMan.name", "kit.spiderMan.description", new ItemStack(Material.WEB, 1));
+        super("SpiderMan", new ItemStack(Material.WEB, 1));
         ItemMeta itemMeta;
 
         this.webLauncherItem = new ItemStack(Material.WEB, 1);
@@ -69,14 +69,14 @@ public class SpiderMan extends Kit {
     public String getDisplayName(Player player) {
         if (player == null)
             return null;
-        return Lang.getMessage(player, getNameId(), "&cERROR", true);
+        return Lang.getMessage(player, "kit.spiderMan.name", "&cERROR", true);
     }
 
     @Override
     public String getDescription(Player player) {
         if (player == null)
             return null;
-        return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
+        return Lang.getMessage(player, "kit.spiderMan.description", "&cERROR", true);
     }
 
     @Override

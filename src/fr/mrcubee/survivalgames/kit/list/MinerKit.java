@@ -16,7 +16,7 @@ public class MinerKit extends Kit {
 	private final ItemStack[] items;
 
 	public MinerKit() {
-		super("Miner", "kit.miner.name", "kit.miner.description", new ItemStack(Material.STONE_PICKAXE));
+		super("Miner", new ItemStack(Material.STONE_PICKAXE));
 		ItemMeta itemMeta;
 
 		this.items = new ItemStack[] {
@@ -63,14 +63,14 @@ public class MinerKit extends Kit {
 	public String getDisplayName(Player player) {
 		if (player == null)
 			return null;
-		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+		return Lang.getMessage(player, "kit.miner.name", "&cERROR", true);
 	}
 
 	@Override
 	public String getDescription(Player player) {
 		if (player == null)
 			return null;
-		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
+		return Lang.getMessage(player, "kit.miner.description", "&cERROR", true);
 	}
 
 	@Override

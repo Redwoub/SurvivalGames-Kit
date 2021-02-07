@@ -15,11 +15,11 @@ public class MrCubeeKit extends Kit {
 		SkullMeta skullMeta = (SkullMeta) itemStack.getItemMeta();
 		skullMeta.setOwner("MrCubee");
 		itemStack.setItemMeta(skullMeta);
-		return new MrCubeeKit("MrCubee", "kit.mrcubee.name", "kit.mrcubee.description", itemStack);
+		return new MrCubeeKit("MrCubee", itemStack);
 	}
 
-	private MrCubeeKit(String name, String nameId, String descriptionId, ItemStack itemStack) {
-		super(name, nameId, descriptionId, itemStack);
+	private MrCubeeKit(String name, ItemStack itemStack) {
+		super(name, itemStack);
 	}
 
 	@Override
@@ -46,14 +46,14 @@ public class MrCubeeKit extends Kit {
 	public String getDisplayName(Player player) {
 		if (player == null)
 			return null;
-		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+		return Lang.getMessage(player, "kit.mrcubee.name", "&cERROR", true);
 	}
 
 	@Override
 	public String getDescription(Player player) {
 		if (player == null)
 			return null;
-		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
+		return Lang.getMessage(player, "kit.mrcubee.description", "&cERROR", true);
 	}
 
 	@Override

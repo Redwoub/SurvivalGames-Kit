@@ -26,7 +26,7 @@ public class DeathNote extends Kit {
     private final ItemStack deathNoteItem;
 
     protected DeathNote() {
-        super("DeathNote","kit.deathNote.name", "kit.deathNote.description", new ItemStack(Material.PAPER, 1));
+        super("DeathNote", new ItemStack(Material.PAPER, 1));
         ItemMeta itemMeta;
 
         this.deathNoteItem = new ItemStack(Material.PAPER, 1);
@@ -69,14 +69,14 @@ public class DeathNote extends Kit {
     public String getDisplayName(Player player) {
         if (player == null)
             return null;
-        return Lang.getMessage(player, getNameId(), "&cERROR", true);
+        return Lang.getMessage(player, "kit.deathNote.name", "&cERROR", true);
     }
 
     @Override
     public String getDescription(Player player) {
         if (player == null)
             return null;
-        return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
+        return Lang.getMessage(player, "kit.deathNote.description", "&cERROR", true);
     }
 
     @Override

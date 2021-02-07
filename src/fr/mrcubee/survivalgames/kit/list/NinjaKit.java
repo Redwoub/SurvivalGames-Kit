@@ -15,7 +15,7 @@ import fr.mrcubee.survivalgames.kit.Kit;
 public class NinjaKit extends Kit {
 
 	public NinjaKit() {
-		super("Ninja", "kit.ninja.name", "kit.ninja.description", new ItemStack(Material.STICK));
+		super("Ninja", new ItemStack(Material.STICK));
 	}
 
 	@Override
@@ -42,14 +42,14 @@ public class NinjaKit extends Kit {
 	public String getDisplayName(Player player) {
 		if (player == null)
 			return null;
-		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+		return Lang.getMessage(player, "kit.ninja.name", "&cERROR", true);
 	}
 
 	@Override
 	public String getDescription(Player player) {
 		if (player == null)
 			return null;
-		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
+		return Lang.getMessage(player, "kit.ninja.description", "&cERROR", true);
 	}
 
 	public void updateInvisible(Player player) {

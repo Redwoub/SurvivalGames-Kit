@@ -16,7 +16,7 @@ import fr.mrcubee.survivalgames.kit.Kit;
 public class MonsterKit extends Kit {
 
 	public MonsterKit() {
-		super("Monster", "kit.monster.name", "kit.monster.description", new ItemStack(Material.ROTTEN_FLESH));
+		super("Monster", new ItemStack(Material.ROTTEN_FLESH));
 	}
 
 	@Override
@@ -43,14 +43,14 @@ public class MonsterKit extends Kit {
 	public String getDisplayName(Player player) {
 		if (player == null)
 			return null;
-		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+		return Lang.getMessage(player, "kit.monster.name", "&cERROR", true);
 	}
 
 	@Override
 	public String getDescription(Player player) {
 		if (player == null)
 			return null;
-		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
+		return Lang.getMessage(player, "kit.monster.description", "&cERROR", true);
 	}
 
 	@Override

@@ -15,7 +15,7 @@ public class ArcherKit extends Kit {
     private final ItemStack[] items;
 
     public ArcherKit() {
-        super("Archer", "kit.archer.name", "kit.archer.description", new ItemStack(Material.BOW));
+        super("Archer", new ItemStack(Material.BOW));
         ItemMeta itemMeta;
 
         this.items = new ItemStack[]{
@@ -63,14 +63,14 @@ public class ArcherKit extends Kit {
     public String getDisplayName(Player player) {
         if (player == null)
             return null;
-        return Lang.getMessage(player, getNameId(), "&cERROR", true);
+        return Lang.getMessage(player, "kit.archer.name", "&cERROR", true);
     }
 
     @Override
     public String getDescription(Player player) {
         if (player == null)
             return null;
-        return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
+        return Lang.getMessage(player, "kit.archer.description", "&cERROR", true);
     }
 
     @Override

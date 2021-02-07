@@ -23,8 +23,7 @@ public class ThiefKit extends Kit {
 	private final Map<Player, Player> thiefTargets;
 	
 	public ThiefKit() {
-		super("Thief", "kit.thief.name", "kit.thief.description",
-				new ItemStack(Material.EYE_OF_ENDER, 1));
+		super("Thief", new ItemStack(Material.EYE_OF_ENDER, 1));
 		this.thiefTargets = new HashMap<Player, Player>();;
 	}
 
@@ -52,14 +51,14 @@ public class ThiefKit extends Kit {
 	public String getDisplayName(Player player) {
 		if (player == null)
 			return null;
-		return Lang.getMessage(player, getNameId(), "&cERROR", true);
+		return Lang.getMessage(player, "kit.thief.name", "&cERROR", true);
 	}
 
 	@Override
 	public String getDescription(Player player) {
 		if (player == null)
 			return null;
-		return Lang.getMessage(player, getDescriptionId(), "&cERROR", true);
+		return Lang.getMessage(player, "kit.thief.description", "&cERROR", true);
 	}
 
 	@Override
