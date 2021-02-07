@@ -21,7 +21,7 @@ public class SurvivalGamesKit extends JavaPlugin {
 			this.getServer().getPluginManager().disablePlugin(this);
 			return;
 		}
-		Lang.setDefaultLang(Lang.EN_US);
+		Lang.setDefaultLang("EN_us");
 		RegisterKit.register();
 	}
 

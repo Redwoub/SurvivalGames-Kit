@@ -1,0 +1,46 @@
+kit.archer.name=Archer
+kit.archer.description=You appear with:%n- 1x Bow power 1 and infinity 1
+
+kit.creeper.name=Creeper
+kit.creeper.description=When you die, you make a huge explosion.
+
+kit.deathNote.name=DeathNote
+kit.deathNote.description=Kill the player you want.
+
+kit.fakeRadar.name=FakeRadar
+kit.fakeRadar.description=You can trick your position on the radar.
+kit.fakeRadar.location.set=&7You have set your new position on the player radar.
+kit.fakeRadar.location.remove=&7Your false location has been deleted because you are too far away.
+
+kit.farmer.name=Farmer
+kit.farmer.description=Grow the plantations instantly.
+
+kit.hulk.name=Hulk &d&l[WINNER]
+kit.hulk.description=When you hit a player%nyou will kick him away with Hulk's strength !
+
+kit.lumberJack.name=LumberJack
+kit.lumberJack.description=You can break whole trees in one shots%nwith a axe.
+
+kit.miner.name=Miner
+kit.miner.description=You appear with:%n- 1x Stone pickaxe durability 2 and efficiency 5
+
+kit.monster.name=Monster
+kit.monster.description=Monsters take you for one of their.%nThey will not attack you.
+
+kit.mrcubee.name=MrCubee
+kit.mrcubee.description=This head is the one of the person who develop this plugin.%n%nThis kit changes frequently because it is an experimental kit to test future kits.
+
+kit.ninja.name=Ninja
+kit.ninja.description=In complete darkness%nyou become invisible !
+
+kit.noRadar.name=&eNoRadar
+kit.noRadar.description=You are not recognizable by radar%nas long as there is a player in the game without this kit.
+
+kit.spiderMan.name=SpiderMan
+kit.spiderMan.description=Traps players in your webs.
+
+kit.thief.name=&cThief
+kit.thief.description=When you are within 4 blocks of another player%nyou can steal it.
+
+kit.wereWolf.name=&eWereWolf
+kit.wereWolf.description=In the night you transform yourself.%n%nYou gain in strength and resistance.

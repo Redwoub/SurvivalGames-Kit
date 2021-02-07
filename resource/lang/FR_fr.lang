@@ -1,0 +1,46 @@
+kit.archer.name=Archer
+kit.archer.description=Vous apparaissez avec:%n- 1x Arc puissance 1 and infinité 1
+
+kit.creeper.name=Creeper
+kit.creeper.description=Quand vous mourrez, vous faites une énorme explosion.
+
+kit.deathNote.name=Notes de décès
+kit.deathNote.description=Tuez le joueur que vous voulez.
+
+kit.fakeRadar.name=FauxRadar
+kit.fakeRadar.description=Vous pouvez tromper votre position sur le radar.
+kit.fakeRadar.location.set=&7Vous avez définie votre nouvelle position sur le radar des joueurs.
+kit.fakeRadar.location.remove=&7Votre fausse position a été retiré car vous êtes trop loin.
+
+kit.farmer.name=Fermier
+kit.farmer.description=Faites pousser les plantations instantanément.
+
+kit.hulk.name=Hulk &d&l[GAGNANT]
+kit.hulk.description=Lorsque vous frappez un joueur%nvous allez l'expulser loin avec la force de Hulk!
+
+kit.lumberJack.name=Bûcheron
+kit.lumberJack.description=Vous pouvez casser des arbres entiers en un seul coup avec une hache.
+
+kit.miner.name=Mineur
+kit.miner.description=Vous apparaissez avec:%n- 1x Pioche en pierre durabilité 2 et efficacité 5
+
+kit.monster.name=Monstre
+kit.monster.description=Les monstres vous prennent pour l'un des leurs.%nIls ne vous attaqueront pas.
+
+kit.mrcubee.name=MrCubee
+kit.mrcubee.description=Cette tête est celle de la personne qui développe ce plugin.%n%nCe kit change fréquemment car c'est un kit expérimental pour tester les futurs kits.
+
+kit.ninja.name=Ninja
+kit.ninja.description=Dans l'obscurité totale%nvous devenez invisible!
+
+kit.noRadar.name=&ePas de radar
+kit.noRadar.description=Vous n'êtes pas reconnaissable au radar%ntant qu'il y a un joueur dans le jeu sans ce kit.
+
+kit.spiderMan.name=Homme araignée
+kit.spiderMan.description=Piège les joueurs dans vos toiles.
+
+kit.thief.name=&cVoleur
+kit.thief.description=Lorsque vous êtes à moins de 4 blocs d'un autre joueur%nvous pouvez le voler.
+
+kit.wereWolf.name=&eLoup-Garou
+kit.wereWolf.description=Dans la nuit, vous vous transformez.%n%nVous gagnez en force et en résistance.
