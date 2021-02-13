@@ -34,8 +34,8 @@ kit.mrcubee.description=Cette tête est celle de la personne qui développe ce p
 
 kit.ninja.name=Ninja
 kit.ninja.description=Dans l'obscurité totale%nvous devenez invisible!
-kit.ninja.invisible=Vous êtes maintenant invisible
-kit.ninja.notinvisible=Vous n'êtes plus invisible
+kit.ninja.invisible=&aVous êtes maintenant invisible
+kit.ninja.notinvisible=&cVous n'êtes plus invisible
 
 kit.noRadar.name=&ePas de radar
 kit.noRadar.description=Vous n'êtes pas reconnaissable au radar%ntant qu'il y a un joueur dans le jeu sans ce kit.
@@ -51,3 +51,4 @@ kit.wereWolf.description=Dans la nuit, vous vous transformez.%n%nVous gagnez en 
 
 kit.radin.name=Radin
 kit.radin.description=Quand vous mourrez, vous ne laissez pas tomber vos affaires
+kit.radin.clearkiller=Ton inventaire vien d'êtres supprimer car tu viens de tuer un joueur qui avait le kit radin !

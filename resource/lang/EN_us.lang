@@ -34,8 +34,8 @@ kit.mrcubee.description=This head is the one of the person who develop this plug
 
 kit.ninja.name=Ninja
 kit.ninja.description=In complete darkness%nyou become invisible !
-kit.ninja.invisible=You are now invisible
-kit.ninja.notinvisible=You are no longer invisible
+kit.ninja.invisible=&aYou are now invisible
+kit.ninja.notinvisible=&cYou are no longer invisible
 
 kit.noRadar.name=&eNoRadar
 kit.noRadar.description=You are not recognizable by radar%nas long as there is a player in the game without this kit.
@@ -51,3 +51,4 @@ kit.wereWolf.description=In the night you transform yourself.%n%nYou gain in str
 
 kit.radin.name=Stingy
 kit.radin.description=When you die you won't drop your stuff
+kit.radin.clearkiller=You were clear because you just killed a player who had the tight kit !

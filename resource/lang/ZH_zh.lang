@@ -34,8 +34,8 @@ kit.mrcubee.description=这个头是开发此插件的人的头。%n该套件经
 
 kit.ninja.name=忍者
 kit.ninja.description=在完全的黑暗中, 你变得隐形！
-kit.ninja.invisible=你是看不见的
-kit.ninja.notinvisible=您不再隐身
+kit.ninja.invisible=&a你是看不见的
+kit.ninja.notinvisible=&c您不再隐身
 
 kit.noRadar.name=&e没有雷达
 kit.noRadar.description=只要游戏中存在没有此套件的玩家，就无法通过雷达识别您。
@@ -51,3 +51,4 @@ kit.wereWolf.description=在夜晚，你变了。您会获得力量和抵抗力�
 
 kit.radin.name=小气
 kit.radin.description=当你死了你不会失去自己的东西
+kit.radin.clearkiller=您的庫存已被刪除因为你刚刚杀了一名球員與小工具
