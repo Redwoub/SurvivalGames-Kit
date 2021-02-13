@@ -1,6 +1,8 @@
 package fr.mrcubee.survivalgames.kit.list;
 
 import fr.mrcubee.langlib.Lang;
+import fr.mrcubee.survivalgames.kit.SurvivalGamesKit;
+import fr.mrcubee.util.PlayerUtil;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -11,6 +13,7 @@ import org.bukkit.potion.PotionEffectType;
 import fr.mrcubee.survivalgames.GameStats;
 import fr.mrcubee.survivalgames.SurvivalGamesAPI;
 import fr.mrcubee.survivalgames.kit.Kit;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class NinjaKit extends Kit {
 
@@ -78,11 +81,23 @@ public class NinjaKit extends Kit {
 		if ((boots.getLightLevel() < 5) && (head.getLightLevel() < 5)
 				&& (!player.hasPotionEffect(PotionEffectType.NIGHT_VISION))) {
 			player.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 999999, 5), true);
+			new BukkitRunnable() {
+				@Override
+				public void run() {
+					PlayerUtil.sendPlayerActionBar(player, Lang.getMessage(player, "kit.ninja.invisible", "§cERROR", true));
+				}
+			}.runTaskTimer(SurvivalGamesKit.getInstance(), 0, 100);
 		} else if (player.hasPotionEffect(PotionEffectType.NIGHT_VISION) && (boots.getLightLevel() >= 5)
 				&& (head.getLightLevel() >= 5)) {
 			for (PotionEffect potion : player.getActivePotionEffects()) {
 				if (potion.getType().equals(PotionEffectType.NIGHT_VISION) && (potion.getAmplifier() == 5)) {
 					player.removePotionEffect(PotionEffectType.NIGHT_VISION);
+					new BukkitRunnable() {
+						@Override
+						public void run() {
+							PlayerUtil.sendPlayerActionBar(player, Lang.getMessage(player, "kit.ninja.notinvisible", "§cERROR", true));
+						}
+					}.runTaskTimer(SurvivalGamesKit.getInstance(), 0, 100);
 				}
 			}
 		}
