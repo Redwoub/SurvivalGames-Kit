@@ -24,7 +24,7 @@ kit.lumberJack.name=LumberJack
 kit.lumberJack.description=You can break whole trees in one shots%nwith a axe.
 
 kit.miner.name=Miner
-kit.miner.description=You appear with:%n- 1x Stone pickaxe durability 2 and efficiency 5
+kit.miner.description=You appear with:%n- 1x Stone pickaxe durability 2 and unbreakable%n- She furnaces iron ore, gold ore and can break the diamond
 
 kit.monster.name=Monster
 kit.monster.description=Monsters take you for one of their.%nThey will not attack you.
@@ -34,6 +34,8 @@ kit.mrcubee.description=This head is the one of the person who develop this plug
 
 kit.ninja.name=Ninja
 kit.ninja.description=In complete darkness%nyou become invisible !
+kit.ninja.invisible=You are now invisible
+kit.ninja.notinvisible=You are no longer invisible
 
 kit.noRadar.name=&eNoRadar
 kit.noRadar.description=You are not recognizable by radar%nas long as there is a player in the game without this kit.
@@ -46,3 +48,6 @@ kit.thief.description=When you are within 4 blocks of another player%nyou can st
 
 kit.wereWolf.name=&eWereWolf
 kit.wereWolf.description=In the night you transform yourself.%n%nYou gain in strength and resistance.
+
+kit.radin.name=Stingy
+kit.radin.description=When you die you won't drop your stuff

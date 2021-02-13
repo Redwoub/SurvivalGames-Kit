@@ -24,7 +24,7 @@ kit.lumberJack.name=伐木工人
 kit.lumberJack.description=您可以用斧子一击就砸毁整个树木。
 
 kit.miner.name=次要
-kit.miner.description=你出现:%n- 1x 石镐的耐久性2和效率5
+kit.miner.description=你出现:%n- 1x 石镐的耐久性2和效率5%n- 她煮铁金的矿石会破坏钻石
 
 kit.monster.name=怪物
 kit.monster.description=怪物把你当作自己的一个。他们不会攻击你。
@@ -34,6 +34,8 @@ kit.mrcubee.description=这个头是开发此插件的人的头。%n该套件经
 
 kit.ninja.name=忍者
 kit.ninja.description=在完全的黑暗中, 你变得隐形！
+kit.ninja.invisible=你是看不见的
+kit.ninja.notinvisible=您不再隐身
 
 kit.noRadar.name=&e没有雷达
 kit.noRadar.description=只要游戏中存在没有此套件的玩家，就无法通过雷达识别您。
@@ -46,3 +48,6 @@ kit.thief.description=当您在另一个玩家的4个方块之内时，您可以
 
 kit.wereWolf.name=&e狼人
 kit.wereWolf.description=在夜晚，你变了。您会获得力量和抵抗力。
+
+kit.radin.name=小气
+kit.radin.description=当你死了你不会失去自己的东西

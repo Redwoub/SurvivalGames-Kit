@@ -24,7 +24,7 @@ kit.lumberJack.name=Bûcheron
 kit.lumberJack.description=Vous pouvez casser des arbres entiers en un seul coup avec une hache.
 
 kit.miner.name=Mineur
-kit.miner.description=Vous apparaissez avec:%n- 1x Pioche en pierre durabilité 2 et efficacité 5
+kit.miner.description=Vous apparaissez avec:%n- 1x Pioche en pierre durabilité 2 et efficacité 5%n- Elle cuit les minerais de fer, d'or et peut casser les diamants
 
 kit.monster.name=Monstre
 kit.monster.description=Les monstres vous prennent pour l'un des leurs.%nIls ne vous attaqueront pas.
@@ -34,6 +34,8 @@ kit.mrcubee.description=Cette tête est celle de la personne qui développe ce p
 
 kit.ninja.name=Ninja
 kit.ninja.description=Dans l'obscurité totale%nvous devenez invisible!
+kit.ninja.invisible=Vous êtes maintenant invisible
+kit.ninja.notinvisible=Vous n'êtes plus invisible
 
 kit.noRadar.name=&ePas de radar
 kit.noRadar.description=Vous n'êtes pas reconnaissable au radar%ntant qu'il y a un joueur dans le jeu sans ce kit.
@@ -46,3 +48,6 @@ kit.thief.description=Lorsque vous êtes à moins de 4 blocs d'un autre joueur%n
 
 kit.wereWolf.name=&eLoup-Garou
 kit.wereWolf.description=Dans la nuit, vous vous transformez.%n%nVous gagnez en force et en résistance.
+
+kit.radin.name=Radin
+kit.radin.description=Quand vous mourrez, vous ne laissez pas tomber vos affaires
