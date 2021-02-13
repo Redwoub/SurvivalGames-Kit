@@ -24,7 +24,8 @@ public class RegisterKit {
 				new NoRadarKit(),
 				new FakeRadarKit(),
 				new DeathNote(),
-				new SpiderMan()
+				new SpiderMan(),
+				new RadinKit()
 				//new IllusionKit()
 				//MrCubeeKit.generateKit()
 		};
