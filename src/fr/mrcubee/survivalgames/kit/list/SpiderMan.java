@@ -23,7 +23,7 @@ import java.util.*;
 
 public class SpiderMan extends Kit {
 
-    private final ItemStack webLauncherItem;
+    public static ItemStack webLauncherItem;
     private final Map<Player, Long> playerCoolDown;
     private final Set<Projectile> projectiles;
 
