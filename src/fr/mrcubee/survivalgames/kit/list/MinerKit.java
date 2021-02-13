@@ -1,17 +1,20 @@
 package fr.mrcubee.survivalgames.kit.list;
 
 import fr.mrcubee.langlib.Lang;
-import fr.mrcubee.survivalgames.SurvivalGamesAPI;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import fr.mrcubee.survivalgames.kit.Kit;
 
-public class MinerKit extends Kit {
+public class MinerKit extends Kit implements Listener {
 
 	private final ItemStack[] items;
 
@@ -22,11 +25,10 @@ public class MinerKit extends Kit {
 		this.items = new ItemStack[] {
 				new ItemStack(Material.STONE_PICKAXE)
 		};
-		this.items[0].addEnchantment(Enchantment.DURABILITY, 2);
 		this.items[0].addEnchantment(Enchantment.DIG_SPEED, 5);
-		this.items[0].addEnchantment(Enchantment.DURABILITY, 3);
 		itemMeta = this.items[0].getItemMeta();
 		itemMeta.setDisplayName(ChatColor.RED + "Miner");
+		itemMeta.spigot().setUnbreakable(true);
 		this.items[0].setItemMeta(itemMeta);
 	}
 
@@ -76,5 +78,32 @@ public class MinerKit extends Kit {
 	@Override
 	public void update() {
 
+	}
+
+	@EventHandler
+	public void onBreakBlock(BlockBreakEvent event){
+		Player player = event.getPlayer();
+		ItemStack itemStack = event.getPlayer().getItemInHand();
+		Block block = event.getBlock();
+
+		if(itemStack.getItemMeta().equals(this.items[0].getItemMeta())){
+			switch (block.getType()){
+				case IRON_ORE:
+					block.setType(Material.AIR);
+					player.getWorld().dropItem(block.getLocation(), new ItemStack(Material.IRON_INGOT));
+					break;
+				case GOLD_ORE:
+					block.setType(Material.AIR);
+					player.getWorld().dropItem(block.getLocation(), new ItemStack(Material.GOLD_INGOT));
+					break;
+
+				case DIAMOND_ORE:
+					block.setType(Material.AIR);
+					player.getWorld().dropItem(block.getLocation(), new ItemStack(Material.DIAMOND));
+					break;
+
+				default: break;
+			}
+		}
 	}
 }
