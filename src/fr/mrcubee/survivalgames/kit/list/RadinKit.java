@@ -2,6 +2,7 @@ package fr.mrcubee.survivalgames.kit.list;
 
 import fr.mrcubee.langlib.Lang;
 import fr.mrcubee.survivalgames.SurvivalGames;
+import fr.mrcubee.survivalgames.SurvivalGamesAPI;
 import fr.mrcubee.survivalgames.kit.Kit;
 
 import fr.mrcubee.survivalgames.kit.KitManager;
@@ -59,28 +60,18 @@ public class RadinKit extends Kit implements Listener {
 
     }
     private ItemStack radar;
-
     public void ClearKiller(Player killer){
         Kit[] kit = kits.getKitByPlayer(killer);
         for(int i = 0; i < 44; i++){
             if(killer.getInventory().getItem(i) == null) return;
-            if(!killer.getInventory().getItem(i).hasItemMeta()) return;
-            if(killer.getInventory().getItem(i).getItemMeta().getDisplayName().equals("§cRADAR")){
-                radar = killer.getInventory().getItem(i);
-                killer.getInventory().clear();
+            if(SurvivalGamesAPI.getGame().getKitManager().canLostItem(killer, killer.getInventory().getItem(i))){
+                if(!killer.getInventory().getItem(i).hasItemMeta()) return;
+                if(killer.getInventory().getItem(i).getItemMeta().getDisplayName().equals("§cRADAR")){
+                    radar = killer.getInventory().getItem(i);
+                    killer.getInventory().clear();
+                }
             }
-        }
 
-        switch (kit[0].getName()){
-            case "Archer":
-                killer.getInventory().addItem(ArcherKit.items[0]);
-                break;
-            case "Miner":
-                killer.getInventory().addItem(MinerKit.items[0]);
-                break;
-            case "SpiderMan":
-                killer.getInventory().addItem(SpiderMan.webLauncherItem);
-            default: break;
         }
         killer.getInventory().addItem(radar);
         killer.sendMessage(Lang.getMessage(killer, "kit.radin.clearkiller", "§cERROR", true));
