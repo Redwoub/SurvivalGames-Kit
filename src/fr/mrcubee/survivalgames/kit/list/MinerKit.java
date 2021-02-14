@@ -16,7 +16,7 @@ import fr.mrcubee.survivalgames.kit.Kit;
 
 public class MinerKit extends Kit implements Listener {
 
-	public static ItemStack[] items;
+	private final ItemStack[] items;
 
 	public MinerKit() {
 		super("Miner", new ItemStack(Material.STONE_PICKAXE));

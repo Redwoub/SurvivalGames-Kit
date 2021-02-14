@@ -12,7 +12,7 @@ import fr.mrcubee.survivalgames.kit.Kit;
 
 public class ArcherKit extends Kit {
 
-    public static ItemStack[] items;
+    private final ItemStack[] items;
 
     public ArcherKit() {
         super("Archer", new ItemStack(Material.BOW));
